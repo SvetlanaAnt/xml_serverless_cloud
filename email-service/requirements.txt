@@ -1,0 +1,4 @@
+jmespath
+Faker
+requests
+boto3

@@ -18,3 +18,19 @@ var/
 
 # Serverless directories
 .serverless
+
+# Package manager
+node_modules/
+package-lock.json
+
+# Idea settings
+.idea/
+
+# VS Code files
+.vscode/
+
+# Virtual environment
+venv/
+venv2/
+
+yarn.lock
