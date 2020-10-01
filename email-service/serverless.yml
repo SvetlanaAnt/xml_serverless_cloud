@@ -36,6 +36,11 @@ provider:
     EMAIL_LOGIN: ${ssm:/xml/${self:custom.stage}/email/login}
     EMAIL_PASSWORD: ${ssm:/xml/${self:custom.stage}/email/password}
 
+plugins:
+  - serverless-offline
+  - serverless-offline-ssm
+  - serverless-python-requirements
+
 functions:
   email_sqs:
     handler: src.service.handleEmail
@@ -67,3 +72,10 @@ resources:
       Properties:
         QueueName: "EmailQueue"
 
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  serverless-offline-ssm:
+    stages:
+      - offline
+  pythonRequirements:
+    dockerizePip: non-linux
